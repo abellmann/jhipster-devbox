@@ -2,7 +2,7 @@
 HomeDir="/home/vagrant"
 git clone https://github.com/DreymaR/BigBagKbdTrix_XKB.git $HomeDir/BigBagKbdTrix_XKB
 sudo bash $HomeDir/BigBagKbdTrix_XKB/install-dreymar-xmod.sh -o
-sudo cp /etc/default/keyboard /etc/default/keyboard.default
+sudo cp /etc/default/keyboard /etc/default/keyboard.backup.$(date +"%Y%m%d%H%M")
 read -d '' DefaultKeyboard <<EOF
 # KEYBOARD CONFIGURATION FILE
 # this uses the extend keyboard navigation from https://github.com/DreymaR/BigBagKbdTrix_XKB
