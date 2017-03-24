@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider :virtualbox do |vb|
         vb.gui = true
         # Use VBoxManage to customize the VM. For example to change memory:
-        vb.customize ["modifyvm", :id, "--name", "jhipster-devbox"]
+        vb.customize ["modifyvm", :id, "--name", "jhipster-devbox-4.1.0"]
         vb.customize ["modifyvm", :id, "--memory", "8192"]
         vb.customize ["modifyvm", :id, "--vram", 128]
         vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
