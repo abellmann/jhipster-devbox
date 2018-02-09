@@ -18,10 +18,10 @@ dpkg-reconfigure locales
 apt-get -y install vim git zip bzip2 fontconfig curl language-pack-en
 
 # install Java 8
-apt-get install default-jdk
+apt-get install openjdk-8-jdk
 
 # install node.js
-curl -sL https://deb.nodesource.com/setup_6.x | bash -
+curl -sL https://deb.nodesource.com/setup_8.x | bash -
 apt-get install -y nodejs unzip python g++ build-essential
 
 # update npm
@@ -35,7 +35,7 @@ su -c "yarn config set prefix /home/vagrant/.yarn-global" vagrant
 su -c "yarn global add yo bower gulp" vagrant
 
 # install JHipster
-su -c "yarn global add generator-jhipster@4.5.3" vagrant
+su -c "yarn global add generator-jhipster@4.14.0" vagrant
 
 # install JHipster UML
 su -c "yarn global add jhipster-uml@2.0.3" vagrant
@@ -69,13 +69,7 @@ sed -i -e 's/xubuntu-wallpaper.png/jhipster-wallpaper.png/' /etc/xdg/xdg-xubuntu
 ################################################################################
 
 # install Ubuntu Make - see https://wiki.ubuntu.com/ubuntu-make
-
-add-apt-repository -y ppa:ubuntu-desktop/ubuntu-make
-
-apt-get update
-apt-get upgrade
-
-apt install -y ubuntu-make
+apt-get install -y ubuntu-make
 
 # install Chromium Browser
 apt-get install -y chromium-browser
@@ -134,7 +128,7 @@ sysctl -p --system
 curl -sL https://get.docker.io/ | sh
 
 # install latest docker-compose
-curl -L "$(curl -s https://api.github.com/repos/docker/compose/releases | grep browser_download_url | head -n 4 | grep Linux | cut -d '"' -f 4)" > /usr/local/bin/docker-compose
+curl -L "$(curl -s https://api.github.com/repos/docker/compose/releases | grep browser_download_url | head -n 4 | grep Linux | grep -v sha256 | cut -d '"' -f 4)" > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
 # configure docker group (docker commands can be launched without sudo)
